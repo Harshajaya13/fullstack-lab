@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Information Portal</title>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Anits College</h1>
+        <h2>Information Portal</h2>
+        <h3>Established in 2002</h3>
+        <p>Anits College is dedicated to providing world-class education in engineering and arts.</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a> |
+        <a href="#">About</a> |
+        <a href="#">Departments</a> |
+        <a href="#">Contact</a>
+    </nav>
+    <hr>
+
+    <section>
+        <h3>College Announcements</h3>
+        <p>
+            <b>Note:</b> All students must wear their <i>identity cards</i>.
+            This is strictly <u>mandatory</u>.
+        </p>
+        <p>
+            Our math formula: (a+b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup> + 2ab.
+				Chemical formula for Hydrogen Peroxide  is H<sub>2</sub>O<sub>2</sub>
+        </p>
+
+        <h3>Quick Links</h3>
+        <p>
+            <a href="https://www.anits.edu.in" target="_blank">This is my college website</a>
+        </p>
+        <p>
+            <a href="https://www.google.com" target="_blank">Search in Google if you never heard my college name</a>
+        </p>
+        <p>
+            For any queries, email us at:
+            <a href="mailto:admissions@anits-college.edu">admissions@anits-college.edu</a>
+        </p>
+
+        <h3>Our Departments</h3>
+        <ul>
+            <li>Computer Science Engineering</li>
+            <li>Electronics & Communication</li>
+            <li>Mechanical Engineering</li>
+            <li>Business Administration</li>
+        </ul>
+
+        <h3>Admission Process (Step by Step)</h3>
+        <ol>
+            <li>Fill the online application form</li>
+            <li>Upload required documents</li>
+            <li>Pay the application fee</li>
+            <li>Appear for the entrance test</li>
+            <li>Attend the counseling session</li>
+        </ol>
+    </section>
+
+    <section>
+        <h3>Successful Students List</h3>
+
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Email</th>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>Rahul Sharma</td>
+                <td>Computer Science</td>
+                <td>rahul@college.edu</td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>Priya Patel</td>
+                <td>Electronics</td>
+                <td>priya@college.edu</td>
+            </tr>
+            <tr>
+                <td>103</td>
+                <td>Amit Kumar</td>
+                <td>Mechanical</td>
+                <td>amit@college.edu</td>
+            </tr>
+        </table>
+    </section>
+
+    <article>
+        <h3>Latest News</h3>
+        <p>Annual college fest "TechVibes 2024" will be held on December 15th.</p>
+    </article>
+
+    <section>
+        <h3>College Home Page Pic</h3>
+        <img src="https://www.anits.org/media/jrcollege/slides/National_Chemistry_Day_2026.png" alt="College Event Image" width="400" height="200">
+    </section>
+
+    <section>
+        <h3>Student Registration Form</h3>
+
+        <form action="#" method="POST">
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="student_name" placeholder="Enter your name" required><br><br>
+
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="student_email" placeholder="your@email.com" required><br><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="student_password" placeholder="Create a password" required><br><br>
+
+            <label>Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="Male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="Other">
+            <label for="other">Other</label><br><br>
+
+            <label>Hobbies:</label><br>
+            <input type="checkbox" id="reading" name="hobbies[]" value="Reading">
+            <label for="reading">Reading</label>
+            <input type="checkbox" id="sports" name="hobbies[]" value="Sports">
+            <label for="sports">Sports</label>
+            <input type="checkbox" id="music" name="hobbies[]" value="Music">
+            <label for="music">Music</label>
+            <input type="checkbox" id="coding" name="hobbies[]" value="Coding">
+            <label for="coding">Coding</label><br><br>
+
+            <label for="branch">Select Your Branch:</label><br>
+            <select id="branch" name="branch">
+                <option value="">-- Choose Branch --</option>
+                <option value="CSE">Computer Science Engineering</option>
+                <option value="ECE">Electronics & Communication</option>
+                <option value="ME">Mechanical Engineering</option>
+                <option value="CE">Civil Engineering</option>
+                <option value="MBA">Business Administration</option>
+            </select><br><br>
+
+            <label for="comments">Any Additional Comments:</label><br>
+            <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Write your comments here..."></textarea><br><br>
+
+            <label for="dob">Date of Birth:</label><br>
+            <input type="date" id="dob" name="dob"><br><br>
+
+            <label for="favcolor">Favorite Color:</label><br>
+            <input type="color" id="favcolor" name="favcolor"><br><br>
+
+            <label for="score">Satisfaction Score:</label><br>
+            <input type="range" id="score" name="score" min="0" max="100" value="50"><br><br>
+
+            <input type="submit" value="Register Now">
+            <input type="reset" value="Clear All">
+        </form>
+    </section>
+
+    <section>
+        <h3>College Anthem</h3>
+        <audio controls>
+            <source src="song.mp3" type="audio/mpeg">
+            Your browser does not support audio.
+        </audio>
+    </section>
+
+    <section>
+        <h3>Campus Tour</h3>
+        <video width="400" height="250" controls>
+            <source src="video.mp4" type="video/mp4">
+            <source src="video.webm" type="video/webm">
+            Your browser does not support video.
+        </video>
+    </section>
+
+    <footer>
+        <hr>
+        <p>&copy; 2024 Anits College. All rights reserved.</p>
+        <p>Contact: info@anits.edu.in | Phone: +91-12345-67890</p>
+    </footer>
+
+</body>
+</html>
