@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" display="width=device-width">
+		    <title>TypeMaster - Typing Speed Test</title>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Typing Master </h1>
+
+<div class="container">
+        <h1>⌨️ TypeMaster</h1>
+        <p class="subtitle">Test Your Typing Speed</p>
+
+        <div class="stats">
+
+            <div class="stat-item">
+                <div class="stat-value" id="timer">60</div>
+                <div class="stat-label">Time (s)</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-value" id="wpm">0</div>
+                <div class="stat-label">WPM</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-value" id="accuracy">100%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+
+            <div class="stat-item">
+                <div class="stat-value" id="charCount">0</div>
+                <div class="stat-label">Characters</div>
+            </div>
+
+
+        <div class="text-display" id="textDisplay"></div>
+
+        <input type="text" class="input-area" id="inputArea" placeholder="Start typing here..." disabled>
+
+        <div class="controls">
+            <button class="btn btn-primary" id="startBtn">▶ Start Test</button>
+            <button class="btn btn-secondary" id="resetBtn">↻ Reset</button>
+        </div>
+
+        <div class="result-message" id="resultMessage"></div>
+    </div>
+
+<script>
+
+        const wordBank = [
+            'hello', 'world', 'coding', 'javascript', 'html', 'css', 'programming',
+            'developer', 'design', 'web', 'application', 'software', 'engineer',
+            'creative', 'solution', 'problem', 'algorithm', 'function', 'variable',
+            'object', 'array', 'string', 'number', 'boolean', 'class', 'method',
+            'interface', 'type', 'module', 'component', 'react', 'node', 'express',
+            'database', 'server', 'client', 'browser', 'internet', 'network',
+            'security', 'authentication', 'authorization', 'api', 'endpoint',
+            'performance', 'optimization', 'scalable', 'responsive', 'framework',
+            'library', 'tool', 'debug', 'test', 'deploy', 'monitor', 'log',
+            'analysis', 'research', 'learning', 'practice', 'mastery', 'skill'
+        ];
+
+
+	const textDisplay = document.getElementById('textDisplay');
+        const inputArea = document.getElementById('inputArea');
+        const startBtn = document.getElementById('startBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const timerEl = document.getElementById('timer');
+        const wpmEl = document.getElementById('wpm');
+        const accuracyEl = document.getElementById('accuracy');
+        const charCountEl = document.getElementById('charCount');
+        const resultMsg = document.getElementById('resultMessage');
+
+
+
+	let words = [];
+        let currentCharIndex = 0;
+        let totalCharsTyped = 0;
+        let correctCharsTyped = 0;
+        let incorrectCharsTyped = 0;
+        let isTestActive = false;
+        let isTestFinished = false;
+        let timer = 60;
+        let timerInterval = null;
+        let startTime = null;
+
+
+		function generateWords(count = 30) {
+            const shuffled = [...wordBank].sort(() => Math.random() - 0.5);
+            return shuffled.slice(0, count);
+        }
+
+
+</script>
+
+
