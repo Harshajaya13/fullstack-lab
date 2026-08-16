@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        .card { border: 1px solid #333; padding: 12px; margin-top: 15px; width: 260px; border-radius: 6px; background: #f9f9f9; }
+        input { margin-bottom: 8px; width: 220px; padding: 4px; }
+    </style>
+</head>
+<body>
+    <h3>Student Details</h3>
+    <input id="name" placeholder="Name" value="Ravi Kumar"><br>
+    <input id="roll" placeholder="Roll No" value="A23126552001"><br>
+    <input id="dept" placeholder="Department" value="CSE (AI & ML)"><br>
+    <input id="cgpa" placeholder="CGPA" value="8.42"><br>
+    <button onclick="generateProfile()">Submit</button>
+
+    <div id="output"></div>
+
+    <script>
+        class Student {
+            constructor(name, rollNo, dept, cgpa) {
+                this.name = name;
+                this.rollNo = rollNo;
+                this.dept = dept;
+                this.cgpa = cgpa;
+            }
+        }
+
+        function generateProfile() {
+            const s = new Student(
+                document.getElementById('name').value,
+                document.getElementById('roll').value,
+                document.getElementById('dept').value,
+                document.getElementById('cgpa').value
+            );
+
+            const out = document.getElementById('output');
+            out.innerHTML = '';
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <h4>Student Profile</h4>
+                <p><b>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> ${s.name}</p>
+                <p><b>Roll No &nbsp;&nbsp;&nbsp;&nbsp;:</b> ${s.rollNo}</p>
+                <p><b>Department :</b> ${s.dept}</p>
+                <p><b>CGPA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> ${s.cgpa}</p>
+            `;
+            out.appendChild(card);
+        }
+    </script>
+</body>
+</html>
