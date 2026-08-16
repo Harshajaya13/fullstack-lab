@@ -1,34 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Student Profile</title>
+    <meta charset="UTF-8">
+    <title>Student Profile Generator</title>
     <style>
-        body { font-family: sans-serif; margin: 20px; }
-        .card { border: 1px solid #333; padding: 12px; margin-top: 15px; width: 260px; border-radius: 6px; background: #f9f9f9; }
-        input { margin-bottom: 8px; width: 220px; padding: 4px; }
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .form-box {
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 380px;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 26px;
+            color: #333;
+        }
+
+        input,
+        button {
+            display: block;
+            margin: 12px auto;
+            padding: 12px;
+            width: 90%;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .card {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 8px;
+            font-size: 22px;
+            color: #4CAF50;
+        }
+
+        .profile-info {
+            display: grid;
+            grid-template-columns: 110px auto;
+            row-gap: 10px;
+            text-align: left;
+            font-size: 17px;
+            font-weight: 500;
+        }
     </style>
 </head>
-<body>
-    <h3>Student Details</h3>
-    <input id="name" placeholder="Name" value="Ravi Kumar"><br>
-    <input id="roll" placeholder="Roll No" value="A23126552001"><br>
-    <input id="dept" placeholder="Department" value="CSE (AI & ML)"><br>
-    <input id="cgpa" placeholder="CGPA" value="8.42"><br>
-    <button onclick="generateProfile()">Submit</button>
 
-    <div id="output"></div>
+<body>
+
+    <div class="form-box">
+        <h2>Student Profile</h2>
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="roll" placeholder="Roll Number">
+        <input type="text" id="dept" placeholder="Department">
+        <input type="number" step="0.01" id="cgpa" placeholder="CGPA">
+        <button id="btn">Generate Profile</button>
+        <div id="container"></div>
+    </div>
 
     <script>
         class Student {
-            constructor(name, rollNo, dept, cgpa) {
+            constructor(name, rollNo, department, cgpa) {
                 this.name = name;
                 this.rollNo = rollNo;
-                this.dept = dept;
+                this.department = department;
                 this.cgpa = cgpa;
             }
         }
 
-        function generateProfile() {
+        document.getElementById('btn').onclick = function () {
+            // Create Student Object
             const s = new Student(
                 document.getElementById('name').value,
                 document.getElementById('roll').value,
@@ -36,20 +109,35 @@
                 document.getElementById('cgpa').value
             );
 
-            const out = document.getElementById('output');
-            out.innerHTML = '';
+            // Select container and clear previous content
+            const container = document.getElementById('container');
+            container.innerHTML = '';
 
+            // Dynamic Element Creation
             const card = document.createElement('div');
             card.className = 'card';
-            card.innerHTML = `
-                <h4>Student Profile</h4>
-                <p><b>Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> ${s.name}</p>
-                <p><b>Roll No &nbsp;&nbsp;&nbsp;&nbsp;:</b> ${s.rollNo}</p>
-                <p><b>Department :</b> ${s.dept}</p>
-                <p><b>CGPA &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</b> ${s.cgpa}</p>
-            `;
-            out.appendChild(card);
-        }
+
+            const title = document.createElement('h3');
+            title.innerText = 'Student Profile';
+
+            // Grid container for aligned details
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'profile-info';
+
+            infoDiv.innerHTML = `
+        <span>Name</span><span>: ${s.name}</span>
+        <span>Roll No</span><span>: ${s.rollNo}</span>
+        <span>Department</span><span>: ${s.department}</span>
+        <span>CGPA</span><span>: ${s.cgpa}</span>
+      `;
+
+            // Append elements to DOM
+            card.appendChild(title);
+            card.appendChild(infoDiv);
+            container.appendChild(card);
+        };
     </script>
+
 </body>
+
 </html>
