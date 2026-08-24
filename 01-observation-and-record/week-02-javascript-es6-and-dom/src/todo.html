@@ -1,43 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Todo List</title>
+  <title>My To-Do List</title>
   <style>
-    * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    body { background: #0f172a; color: #f8fafc; padding: 40px; display: flex; justify-content: center; }
-    .box { background: #1e293b; border: 1px solid #334155; padding: 25px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); width: 360px; }
-    h2 { margin: 0 0 15px; color: #38bdf8; text-align: center; font-size: 22px; }
-    .row { display: flex; gap: 8px; margin-bottom: 15px; }
-    input { flex: 1; padding: 10px 12px; background: #0f172a; border: 1px solid #334155; color: #fff; border-radius: 8px; outline: none; font-size: 14px; }
-    input:focus { border-color: #38bdf8; }
-    button { background: #2563eb; color: #fff; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; }
-    button:hover { background: #1d4ed8; }
-    ul { list-style: none; padding: 0; margin: 0; }
-    li { background: #0f172a; border: 1px solid #334155; padding: 10px 14px; border-radius: 8px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
-    .done { text-decoration: line-through; color: #64748b; }
-    .del { background: #ef4444; padding: 4px 10px; font-size: 12px; border-radius: 6px; }
-    .del:hover { background: #dc2626; }
+    body {
+      font-family: sans-serif;
+      background: #f8fafc;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+    }
+    .box {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 400px;
+    }
+    h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+    .row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+    input {
+      flex: 1;
+      padding: 8px;
+    }
+    button {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+    li {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .task-title {
+      flex: 1;
+    }
+    .empty-msg {
+      text-align: center;
+      color: gray;
+    }
   </style>
 </head>
 <body>
   <div class="box">
-    <h2>📋 Todo List</h2>
+    <h2>My To-Do List</h2>
     <div class="row">
-      <input type="text" id="task" placeholder="Add new task...">
-      <button onclick="add()">Add</button>
+      <input type="text" id="taskInput" placeholder="Enter a task...">
+      <button id="addBtn">Add Task</button>
     </div>
-    <ul id="list"></ul>
+    <ul id="taskList"></ul>
+    <p id="emptyMsg" class="empty-msg">No tasks available.</p>
   </div>
 
   <script>
-    function add() {
-      let inp = document.getElementById('task');
-      if (!inp.value.trim()) return;
-      let li = document.createElement('li');
-      li.innerHTML = `<span onclick="this.classList.toggle('done')" style="cursor:pointer">${inp.value}</span> <button class="del" onclick="this.parentElement.remove()">✕</button>`;
-      document.getElementById('list').appendChild(li);
-      inp.value = '';
+    const taskInput = document.getElementById('taskInput');
+    const addBtn = document.getElementById('addBtn');
+    const taskList = document.getElementById('taskList');
+    const emptyMsg = document.getElementById('emptyMsg');
+
+    function checkEmpty() {
+      emptyMsg.style.display = taskList.children.length === 0 ? 'block' : 'none';
     }
+
+    addBtn.addEventListener('click', () => {
+      const text = taskInput.value.trim();
+      if (!text) return;
+
+      const li = document.createElement('li');
+      const span = document.createElement('span');
+      span.className = 'task-title';
+      span.textContent = text;
+
+      const compBtn = document.createElement('button');
+      compBtn.textContent = 'Complete';
+      compBtn.addEventListener('click', () => {
+        span.classList.toggle('completed');
+      });
+
+      const delBtn = document.createElement('button');
+      delBtn.textContent = 'Delete';
+      delBtn.addEventListener('click', () => {
+        li.remove();
+        checkEmpty();
+      });
+
+      li.appendChild(span);
+      li.appendChild(compBtn);
+      li.appendChild(delBtn);
+      taskList.appendChild(li);
+
+      taskInput.value = '';
+      checkEmpty();
+    });
   </script>
 </body>
 </html>
