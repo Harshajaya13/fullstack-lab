@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1 - Interactive Product Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 400px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e2f0d9;
+            border: 1px solid #b2d8a3;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #276a16;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Product Calculator</h2>
+
+        <div class="form-group">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" placeholder="e.g. Laptop">
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" value="1" min="0">
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price (₹):</label>
+            <input type="number" id="price" value="0" min="0">
+        </div>
+
+        <div class="result">
+            Total Price: ₹<span id="totalPrice">0.00</span>
+        </div>
+    </div>
+
+    <script>
+        // Get references to HTML input elements
+        const quantityInput = document.getElementById('quantity');
+        const priceInput = document.getElementById('price');
+        const totalPriceSpan = document.getElementById('totalPrice');
+
+        // Function to calculate and update total price
+        function calculateTotal() {
+            const qty = parseFloat(quantityInput.value) || 0;
+            const price = parseFloat(priceInput.value) || 0;
+
+            const total = qty * price;
+
+            // Display total rounded to 2 decimal places
+            totalPriceSpan.textContent = total.toFixed(2);
+        }
+
+        // Add event listeners to trigger calculation on input change
+        quantityInput.addEventListener('input', calculateTotal);
+        priceInput.addEventListener('input', calculateTotal);
+
+        // Initial calculation on page load
+        calculateTotal();
+    </script>
+
+</body>
+
+</html>

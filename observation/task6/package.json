@@ -1,0 +1,17 @@
+{
+  "name": "observation-task6",
+  "version": "1.0.0",
+  "description": "PBL Task 6 Solutions - Node.js, NPM, Express Middleware",
+  "main": "q8_middleware_server.js",
+  "scripts": {
+    "start": "node q8_middleware_server.js",
+    "q6": "node q6_modules_demo.js",
+    "q7": "node q7_npm_demo.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.3"
+  }
+}

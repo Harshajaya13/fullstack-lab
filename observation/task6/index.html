@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL Observation Task 6 - Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 15px;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        .task-item {
+            background: #f8f9fa;
+            border-left: 4px solid #27ae60;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        .task-item h3 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+        }
+        .task-item p {
+            margin: 0 0 10px 0;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 14px;
+            background-color: #27ae60;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .btn:hover {
+            background-color: #219150;
+        }
+        code {
+            background-color: #eef1f4;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>PBL Observation Task 6 Dashboard</h1>
+        
+        <ul class="task-list">
+            
+            <li class="task-item">
+                <h3>Question 5: JS Functions vs Classes</h3>
+                <p>Differences between functions and classes, with interactive object creation demonstration.</p>
+                <a href="q5_functions_vs_classes.html" class="btn">Open Q5 Webpage</a>
+            </li>
+
+            <li class="task-item">
+                <h3>Question 6: Node.js Built-in Modules</h3>
+                <p>Demonstrates purpose and usage of core <code>os</code>, <code>path</code>, and <code>fs</code> modules.</p>
+                <p>Run via terminal: <code>node q6_modules_demo.js</code></p>
+            </li>
+
+            <li class="task-item">
+                <h3>Question 7: NPM & package.json</h3>
+                <p>Explains package management, dependency tracking, and external package usage.</p>
+                <p>Run via terminal: <code>node q7_npm_demo.js</code></p>
+            </li>
+
+            <li class="task-item">
+                <h3>Question 8: Express Middleware Logger</h3>
+                <p>Demonstrates Express request-response cycle and custom logger middleware.</p>
+                <p>Run via terminal: <code>npm install && node q8_middleware_server.js</code></p>
+                <a href="http://localhost:3000" target="_blank" class="btn">Open Server (Port 3000)</a>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+</html>

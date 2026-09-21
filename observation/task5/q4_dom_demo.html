@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 - DOM Explanation & Live Demonstration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .section {
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .explanation-box {
+            background-color: #eef7fc;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .demo-area {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .demo-card {
+            flex: 1;
+            min-width: 280px;
+            border: 2px dashed #bdc3c7;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .demo-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .controls {
+            flex: 1;
+            min-width: 280px;
+        }
+        .btn-group {
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 4px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section 1: DOM Explanation -->
+    <div class="section">
+        <h1>Understanding the Document Object Model (DOM)</h1>
+        
+        <div class="explanation-box">
+            <h3>What is DOM?</h3>
+            <p>The <strong>Document Object Model (DOM)</strong> is a programming interface for web documents. It represents the structure of an HTML page as a logical <em>tree of nodes/objects</em>. JavaScript uses the DOM to read and manipulate page content, styling, and HTML attributes dynamically without requiring a page reload.</p>
+        </div>
+
+        <h3>Core DOM Concepts:</h3>
+        <ul>
+            <li><strong>DOM Tree:</strong> HTML elements become parent/child nodes in a tree structure.</li>
+            <li><strong>Content Manipulation:</strong> Modifying text using <code>element.textContent</code> or <code>element.innerHTML</code>.</li>
+            <li><strong>Style Manipulation:</strong> Changing CSS properties dynamically via <code>element.style.color</code>.</li>
+            <li><strong>Attribute Manipulation:</strong> Reading or setting HTML attributes using <code>element.setAttribute()</code> and <code>element.getAttribute()</code>.</li>
+        </ul>
+    </div>
+
+    <!-- Section 2: Live Demonstration -->
+    <div class="section">
+        <h2>Live DOM Manipulation Demonstration</h2>
+
+        <div class="demo-area">
+            
+            <!-- Controls Column -->
+            <div class="controls">
+                
+                <!-- 1. Dynamic Content Change -->
+                <div class="btn-group">
+                    <h4>1. Change Content (<code>textContent</code>)</h4>
+                    <input type="text" id="customTextInput" placeholder="Type new heading text...">
+                    <button onclick="updateContent()">Update Content</button>
+                </div>
+
+                <!-- 2. Dynamic Style Change -->
+                <div class="btn-group">
+                    <h4>2. Change Style (<code>element.style</code>)</h4>
+                    <button onclick="changeTextColor('#e74c3c')">Red Text</button>
+                    <button onclick="changeTextColor('#2ecc71')">Green Text</button>
+                    <button onclick="changeTextColor('#3498db')">Blue Text</button>
+                    <button onclick="toggleCardBg()">Toggle Background</button>
+                </div>
+
+                <!-- 3. Dynamic Attribute Change -->
+                <div class="btn-group">
+                    <h4>3. Change Attribute (<code>setAttribute</code>)</h4>
+                    <button onclick="switchImage('avatar1')">Image 1</button>
+                    <button onclick="switchImage('avatar2')">Image 2</button>
+                </div>
+
+            </div>
+
+            <!-- Target Element Card Column -->
+            <div class="demo-card" id="targetCard">
+                <img id="profileImg" src="https://api.dicebear.com/7.x/bottts/svg?seed=student1" alt="Profile Image">
+                <h3 id="cardHeading">Original Student Heading</h3>
+                <p id="cardDescription">This paragraph content can be modified dynamically using JavaScript DOM methods.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements selection
+        const cardHeading = document.getElementById('cardHeading');
+        const cardDescription = document.getElementById('cardDescription');
+        const targetCard = document.getElementById('targetCard');
+        const profileImg = document.getElementById('profileImg');
+        const customTextInput = document.getElementById('customTextInput');
+
+        // 1. Function to change content dynamically
+        function updateContent() {
+            const userText = customTextInput.value.trim();
+            if (userText !== "") {
+                // Changing content using textContent property
+                cardHeading.textContent = userText;
+                cardDescription.textContent = "Heading updated at " + new Date().toLocaleTimeString();
+            } else {
+                alert("Please enter some text in the input box!");
+            }
+        }
+
+        // 2. Function to change element style dynamically
+        function changeTextColor(colorHex) {
+            // Modifying style.color property directly
+            cardHeading.style.color = colorHex;
+        }
+
+        function toggleCardBg() {
+            // Toggling background color using style property
+            if (targetCard.style.backgroundColor === 'rgb(240, 248, 255)' || targetCard.style.backgroundColor === 'aliceblue') {
+                targetCard.style.backgroundColor = '#ffffff';
+            } else {
+                targetCard.style.backgroundColor = 'aliceblue';
+            }
+        }
+
+        // 3. Function to change element attribute dynamically
+        function switchImage(type) {
+            if (type === 'avatar1') {
+                // Using setAttribute to change the 'src' attribute
+                profileImg.setAttribute('src', 'https://api.dicebear.com/7.x/bottts/svg?seed=student1');
+                profileImg.setAttribute('alt', 'Robot Avatar 1');
+            } else {
+                // Using setAttribute to change the 'src' attribute
+                profileImg.setAttribute('src', 'https://api.dicebear.com/7.x/bottts/svg?seed=student2');
+                profileImg.setAttribute('alt', 'Robot Avatar 2');
+            }
+        }
+    </script>
+
+</body>
+</html>

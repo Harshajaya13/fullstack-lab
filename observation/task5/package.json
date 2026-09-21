@@ -1,0 +1,16 @@
+{
+  "name": "observation-task5",
+  "version": "1.0.0",
+  "description": "PBL Task 5 Solutions",
+  "main": "q3_server.js",
+  "scripts": {
+    "start": "node q3_server.js",
+    "q2": "node q2_file_manager.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.22.3"
+  }
+}

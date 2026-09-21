@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBL Observation Task 5 - Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 15px;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        .task-item {
+            background: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+        .task-item h3 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+        }
+        .task-item p {
+            margin: 0 0 10px 0;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 14px;
+            background-color: #3498db;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        code {
+            background-color: #eef1f4;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>PBL Observation Task 5</h1>
+        
+        <ul class="task-list">
+            
+            <li class="task-item">
+                <h3>Question 1: Interactive Product Calculator</h3>
+                <p>Calculates total price dynamically using JavaScript event listeners and DOM updates.</p>
+                <a href="q1_calculator.html" class="btn">Open Calculator</a>
+            </li>
+
+            <li class="task-item">
+                <h3>Question 2: Node.js File Management</h3>
+                <p>Node.js application performing write, read, append, and display file operations.</p>
+                <p>Run via terminal: <code>node q2_file_manager.js</code></p>
+            </li>
+
+            <li class="task-item">
+                <h3>Question 3: Express.js Student Server</h3>
+                <p>Express server with <code>/</code>, <code>/students</code>, and <code>/about</code> routes.</p>
+                <p>Run via terminal: <code>npm install && node q3_server.js</code></p>
+                <a href="http://localhost:3000" target="_blank" class="btn">Visit Express Server (Port 3000)</a>
+            </li>
+
+            <li class="task-item">
+                <h3>Question 4: DOM Explanation & Live Demo</h3>
+                <p>Explains DOM concepts and demonstrates dynamic element content, style, and attribute changes.</p>
+                <a href="q4_dom_demo.html" class="btn">Open DOM Demo</a>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+</html>
