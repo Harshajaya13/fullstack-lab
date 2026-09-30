@@ -1,22 +1,53 @@
 <!DOCTYPE html>
-<html>
-<head><title>DOM Demo</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q4 - DOM Explanation & Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .box { padding: 15px; border: 1px dashed #555; width: 320px; }
+        button { margin: 3px; padding: 6px 10px; cursor: pointer; }
+    </style>
+</head>
 <body>
-    <h2>DOM Manipulation Demo</h2>
-    <h3 id="heading">Original Heading</h3>
-    <img id="img" src="https://via.placeholder.com/100" alt="Old Image"><br><br>
 
-    <button onclick="changeContent()">Change Content</button>
-    <button onclick="changeStyle()">Change Style</button>
-    <button onclick="changeAttr()">Change Attribute</button>
+    <h2>Document Object Model (DOM)</h2>
+    <p><strong>DOM Concept:</strong> Interface representing HTML elements as a tree of nodes, enabling JavaScript to dynamically modify element content, styling, and attributes.</p>
+
+    <div class="box">
+        <h3 id="cardHeading">Original Heading Text</h3>
+        <p id="cardPara">Original paragraph description.</p>
+        <img id="cardImg" src="https://via.placeholder.com/100" alt="Sample Image"><br><br>
+
+        <button onclick="modifyContent()">Change Content</button>
+        <button onclick="modifyStyle()">Change Style</button>
+        <button onclick="modifyAttribute()">Change Attribute</button>
+    </div>
 
     <script>
-        const h = document.getElementById('heading');
-        const img = document.getElementById('img');
+        // DOM Element Selection
+        const heading = document.getElementById('cardHeading');
+        const para = document.getElementById('cardPara');
+        const img = document.getElementById('cardImg');
 
-        function changeContent() { h.textContent = "New Heading Text!"; }
-        function changeStyle() { h.style.color = "red"; }
-        function changeAttr() { img.setAttribute('alt', 'New Image Description'); }
+        // 1. Dynamic Content Modification (textContent)
+        function modifyContent() {
+            heading.textContent = "Updated Heading Content!";
+            para.textContent = "Paragraph updated dynamically using DOM textContent.";
+        }
+
+        // 2. Dynamic Style Modification (style property)
+        function modifyStyle() {
+            heading.style.color = "crimson";
+            heading.style.backgroundColor = "#fff0f0";
+        }
+
+        // 3. Dynamic Attribute Modification (setAttribute)
+        function modifyAttribute() {
+            img.setAttribute('alt', 'Updated Image Alt Text');
+            img.setAttribute('src', 'https://via.placeholder.com/120');
+        }
     </script>
+
 </body>
 </html>

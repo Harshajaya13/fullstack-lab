@@ -1,28 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head><title>Functions vs Classes</title></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Q5 - Functions vs Classes</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .info { background: #f0f8ff; padding: 10px; border-left: 4px solid #008080; }
+        .output { margin-top: 10px; padding: 8px; border: 1px solid #aaa; font-family: monospace; }
+    </style>
+</head>
 <body>
-    <h2>JS Functions vs Classes</h2>
-    <button onclick="runDemo()">Create Objects</button>
-    <div id="output"></div>
+
+    <h2>JavaScript Functions vs Classes</h2>
+    <div class="info">
+        <p><strong>Functions:</strong> Executable code blocks called to perform calculations.</p>
+        <p><strong>Classes:</strong> ES6 blueprints used with <code>new</code> keyword to create multiple unique objects sharing common properties and methods.</p>
+    </div>
+
+    <h3>Class Instantiation Demo</h3>
+    <button onclick="instantiateObjects()">Create Objects</button>
+
+    <div id="display" class="output">Click button to instantiate objects...</div>
 
     <script>
-        // Class blueprint to create multiple objects
+        // Class Blueprint defining common properties and methods
         class Student {
-            constructor(name, roll) {
+            constructor(name, rollNo) {
                 this.name = name;
-                this.roll = roll;
+                this.rollNo = rollNo;
             }
+
+            // Common Method for all instances
             getDetails() {
-                return `Student: ${this.name}, Roll: ${this.roll}`;
+                return `Student Name: ${this.name} | Roll No: ${this.rollNo}`;
             }
         }
 
-        function runDemo() {
-            const s1 = new Student("Rahul", 101);
-            const s2 = new Student("Priya", 102);
-            document.getElementById('output').innerHTML = `${s1.getDetails()}<br>${s2.getDetails()}`;
+        // Function creating multiple instances using 'new'
+        function instantiateObjects() {
+            const s1 = new Student("Rahul Sharma", 101);
+            const s2 = new Student("Priya Patel", 102);
+
+            document.getElementById('display').innerHTML = 
+                `${s1.getDetails()}<br>${s2.getDetails()}`;
         }
     </script>
+
 </body>
 </html>

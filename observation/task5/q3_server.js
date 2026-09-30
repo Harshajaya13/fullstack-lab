@@ -1,16 +1,33 @@
+// Express.js Student Server (Q3)
 const express = require('express');
 const app = express();
+const PORT = 3000;
 
+// List of at least 5 student details
 const students = [
-    { id: 1, name: "Rahul", roll: 101 },
-    { id: 2, name: "Priya", roll: 102 },
-    { id: 3, name: "Amit", roll: 103 },
-    { id: 4, name: "Sneha", roll: 104 },
-    { id: 5, name: "Vikram", roll: 105 }
+    { id: 1, name: "Rahul Sharma", rollNo: 101, course: "CSE" },
+    { id: 2, name: "Priya Patel", rollNo: 102, course: "IT" },
+    { id: 3, name: "Amit Kumar", rollNo: 103, course: "ECE" },
+    { id: 4, name: "Sneha Reddy", rollNo: 104, course: "CSE" },
+    { id: 5, name: "Vikram Singh", rollNo: 105, course: "ME" }
 ];
 
-app.get('/', (req, res) => res.send('Welcome to Student Server'));
-app.get('/students', (req, res) => res.json(students));
-app.get('/about', (req, res) => res.send('Student Express Application'));
+// Route 1: Home Endpoint ('/')
+app.get('/', (req, res) => {
+    res.send('<h2>Student Management Server</h2><p>Routes: /students, /about</p>');
+});
 
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+// Route 2: Students List Endpoint ('/students')
+app.get('/students', (req, res) => {
+    res.json({ success: true, data: students });
+});
+
+// Route 3: Application Info Endpoint ('/about')
+app.get('/about', (req, res) => {
+    res.json({ appName: "Student Server App", version: "1.0.0" });
+});
+
+// Start Express Server
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+});
