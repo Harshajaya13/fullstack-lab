@@ -32,41 +32,33 @@
 </head>
 
 <body>
-
     <div class="box">
         <h3>Interactive Product Calculator</h3>
-        <p style="font-size: 13px; color: #555;"><b>Description:</b> Dynamically calculates total price (Quantity &times; Price) using JavaScript event listeners without page refresh.</p>
-
+        <p><b>Description:</b> Dynamically calculates total price (Qty &times; Price) using JS event listeners without
+            page refresh.</p>
         <label>Product Name:</label><br>
         <input type="text" id="name" placeholder="Laptop"><br>
-
         <label>Quantity:</label><br>
         <input type="number" id="qty" value="1" min="0"><br>
-
         <label>Unit Price (₹):</label><br>
         <input type="number" id="price" value="0" min="0"><br>
-
         <div class="total">Total Price: ₹<span id="total">0.00</span></div>
     </div>
-
     <script>
         // Select input elements and output container
         const qtyInput = document.getElementById('qty');
         const priceInput = document.getElementById('price');
         const totalSpan = document.getElementById('total');
-
         // Function to calculate total price dynamically
         function calculateTotal() {
             const qty = parseFloat(qtyInput.value) || 0;
             const price = parseFloat(priceInput.value) || 0;
             totalSpan.textContent = (qty * price).toFixed(2);
         }
-
         // Attach event listeners for real-time calculation
         qtyInput.addEventListener('input', calculateTotal);
         priceInput.addEventListener('input', calculateTotal);
     </script>
-
 </body>
 
 </html>
