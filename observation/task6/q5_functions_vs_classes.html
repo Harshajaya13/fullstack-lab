@@ -1,163 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q5 - Functions vs Classes in JavaScript</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f6f9;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        h1, h2 {
-            color: #2c3e50;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #3498db;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        .demo-box {
-            background: #eef7fc;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin-top: 20px;
-        }
-        button {
-            padding: 10px 15px;
-            background-color: #27ae60;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        button:hover {
-            background-color: #219150;
-        }
-        .output {
-            margin-top: 15px;
-            background: #ffffff;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-    </style>
-</head>
+<html>
+<head><title>Functions vs Classes</title></head>
 <body>
-
-    <div class="container">
-        <h1>JavaScript Functions vs Classes</h1>
-
-        <h2>1. Key Differences</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Feature</th>
-                    <th>Functions</th>
-                    <th>Classes (ES6)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Primary Purpose</strong></td>
-                    <td>Used to execute a block of code or perform a calculation.</td>
-                    <td>Used as a blueprint to create multiple objects.</td>
-                </tr>
-                <tr>
-                    <td><strong>Syntax</strong></td>
-                    <td><code>function add(a, b) { ... }</code></td>
-                    <td><code>class Student { constructor() { ... } }</code></td>
-                </tr>
-                <tr>
-                    <td><strong>Hoisting</strong></td>
-                    <td>Function declarations are hoisted (can be called before definition).</td>
-                    <td>Classes are NOT hoisted (must be declared before use).</td>
-                </tr>
-                <tr>
-                    <td><strong>Object Creation</strong></td>
-                    <td>Returns a single value or object.</td>
-                    <td>Instantiated using the <code>new</code> keyword to create objects.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2>2. How Classes Create Multiple Objects</h2>
-        <p>A <strong>class</strong> defines common <em>properties</em> (inside <code>constructor()</code>) and <em>methods</em> (functions attached to the class). Using the <code>new</code> keyword, we can instantiate multiple unique objects that share the same behavior.</p>
-
-        <div class="demo-box">
-            <h3>Live Demonstration: Student Class</h3>
-            <p>Click below to create 3 student objects from a single <code>Student</code> class blueprint:</p>
-            <button onclick="createStudents()">Create & Display Students</button>
-
-            <div id="outputDisplay" class="output">Click the button to generate objects...</div>
-        </div>
-    </div>
+    <h2>JS Functions vs Classes</h2>
+    <button onclick="runDemo()">Create Objects</button>
+    <div id="output"></div>
 
     <script>
-        // Define a JavaScript Class
+        // Class blueprint to create multiple objects
         class Student {
-            // Constructor initializes common properties for each object instance
-            constructor(name, rollNo, marks) {
+            constructor(name, roll) {
                 this.name = name;
-                this.rollNo = rollNo;
-                this.marks = marks;
+                this.roll = roll;
             }
-
-            // Common Method 1: Calculate Grade
-            getGrade() {
-                if (this.marks >= 90) return 'A+';
-                if (this.marks >= 75) return 'A';
-                if (this.marks >= 60) return 'B';
-                return 'C';
-            }
-
-            // Common Method 2: Display Details
             getDetails() {
-                return `Name: ${this.name} | Roll No: ${this.rollNo} | Marks: ${this.marks} | Grade: ${this.getGrade()}`;
+                return `Student: ${this.name}, Roll: ${this.roll}`;
             }
         }
 
-        // Function triggered on button click
-        function createStudents() {
-            // Creating multiple objects using the 'new' keyword
-            const s1 = new Student("Rahul Sharma", 101, 92);
-            const s2 = new Student("Priya Patel", 102, 84);
-            const s3 = new Student("Amit Kumar", 103, 68);
-
-            // Accessing properties and methods of each object
-            const outputText = `
-1. ${s1.getDetails()}
-2. ${s2.getDetails()}
-3. ${s3.getDetails()}
-            `.trim();
-
-            document.getElementById('outputDisplay').innerText = outputText;
+        function runDemo() {
+            const s1 = new Student("Rahul", 101);
+            const s2 = new Student("Priya", 102);
+            document.getElementById('output').innerHTML = `${s1.getDetails()}<br>${s2.getDetails()}`;
         }
     </script>
-
 </body>
 </html>
